@@ -1,0 +1,3 @@
+0:confused
+1:engaged
+2:frustrated

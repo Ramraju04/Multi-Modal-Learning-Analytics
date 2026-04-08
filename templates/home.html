@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block head_css %}
+<style>
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        margin-bottom: var(--space-md);
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+        max-width: 700px;
+        margin: 0 auto var(--space-lg);
+        color: #cbd5e1;
+    }
+
+    /* Process Section */
+    .process-step {
+        position: relative;
+        padding: var(--space-lg);
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+        margin-left: 20px;
+    }
+
+    .process-step::before {
+        content: '';
+        position: absolute;
+        left: -11px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: var(--accent-glow);
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-md);
+    }
+
+    .quote-icon {
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="hero">
+    <div class="container hero-content">
+        <div
+            style="display: inline-block; padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 0.9rem; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2);">
+            ✨ Next-Gen Education Technology
+        </div>
+        <h1>
+            Personalized Learning,<br>
+            Powered by <span style="color: var(--accent-glow)">Intelligence.</span>
+        </h1>
+        <p>
+            The world's first Multi-Modal Learning Analytics platform that adapts to your gaze,
+            performance, and engagement in real-time.
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">
+                Start Learning Journey
+            </a>
+            <a href="{{ url_for('features') }}" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
+                Explore Features
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Board -->
+<section class="container" style="margin-top: -50px; position: relative; z-index: 5;">
+    <div class="glass-card grid grid-3"
+        style="border: 1px solid rgba(255,255,255,0.2); background: rgba(10, 20, 40, 0.6);">
+        <div style="text-align: center;">
+            <h3 style="font-size: 3rem; margin-bottom: 0; color: var(--bg-aurora-2);">98%</h3>
+            <p>Engagement Retention</p>
+        </div>
+        <div
+            style="text-align: center; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="font-size: 3rem; margin-bottom: 0; color: var(--bg-aurora-3);">45%</h3>
+            <p>Faster Mastery</p>
+        </div>
+        <div style="text-align: center;">
+            <h3 style="font-size: 3rem; margin-bottom: 0; color: var(--bg-aurora-1);">200ms</h3>
+            <p>Adaptive Latency</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="container">
+    <div class="grid grid-2" style="align-items: center;">
+        <div>
+            <h2 style="font-size: 3rem;">How MMLA Works</h2>
+            <p style="margin-bottom: 40px;">A seamless loop of observation, analysis, and adaptation.</p>
+
+            <div class="process-step">
+                <h4>1. Multimodal Sensing</h4>
+                <p>We aggregate data from video feeds (posture/gaze), interaction logs, and micro-assessments.</p>
+            </div>
+            <div class="process-step">
+                <h4>2. State Fusion</h4>
+                <p>Advanced Deep Learning models fuse these inputs into a comprehensive "Learner State Vector".</p>
+            </div>
+            <div class="process-step">
+                <h4>3. DRL Decision</h4>
+                <p>Our DQN Agent evaluates millions of possibilities to select the perfect next content module.</p>
+            </div>
+        </div>
+        <div
+            style="background: rgba(0,0,0,0.2); border-radius: 20px; height: 500px; display: flex; align-items: center; justify-content: center;">
+            <!-- Placeholder for Architecture Diagram or Animation -->
+            <div style="text-align: center; color: rgba(255,255,255,0.3);">
+                <div style="font-size: 3rem;">🔄</div>
+                <p>Closed-Loop Adaptive System</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials / Impact -->
+<section class="container">
+    <h2 style="text-align: center; margin-bottom: 60px;">Built for the Future of Education</h2>
+    <div class="testimonial-grid">
+        <div class="glass-card">
+            <span class="quote-icon">“</span>
+            <p style="font-style: italic; margin-bottom: 20px;">
+                "This system correctly identified when I was zoning out and switched to an interactive quiz, bringing my
+                focus right back."
+            </p>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 50px; height: 50px; background: #ddd; border-radius: 50%;"></div>
+                <div>
+                    <h5 style="margin-bottom: 0;">Student A</h5>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Computer Science Major</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <span class="quote-icon">“</span>
+            <p style="font-style: italic; margin-bottom: 20px;">
+                "The DRL agent's ability to balance difficulty and skill level is superior to any rule-based system I've
+                used."
+            </p>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 50px; height: 50px; background: #ddd; border-radius: 50%;"></div>
+                <div>
+                    <h5 style="margin-bottom: 0;">Dr. Smith</h5>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">EdTech Researcher</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <span class="quote-icon">“</span>
+            <p style="font-style: italic; margin-bottom: 20px;">
+                "Seamless integration of engagement metrics. It feels like the course is alive."
+            </p>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 50px; height: 50px; background: #ddd; border-radius: 50%;"></div>
+                <div>
+                    <h5 style="margin-bottom: 0;">Beta Tester</h5>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">University Pilot</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="container" style="text-align: center; margin-bottom: 100px;">
+    <div class="glass-card"
+        style="background: linear-gradient(135deg, var(--bg-aurora-1), var(--bg-aurora-2)); border: none; padding: 60px;">
+        <h2 style="color: white;">Ready to experience it?</h2>
+        <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">
+            Join the simulation and watch the AI adapt to your input.
+        </p>
+        <a href="{{ url_for('dashboard') }}" class="btn"
+            style="background: white; color: var(--bg-deep); padding: 15px 50px;">
+            Launch Dashboard
+        </a>
+    </div>
+</section>
+{% endblock %}

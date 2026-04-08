@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block head_css %}
+<style>
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
+    }
+
+    .team-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: var(--space-md);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .team-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-5px);
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--bg-aurora-1), var(--bg-aurora-2));
+        margin: 0 auto var(--space-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container" style="padding-top: 150px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center;">
+        <div>
+            <h1 style="font-size: 3.5rem;">Our Mission</h1>
+            <p class="lead" style="font-size: 1.25rem; color: #e2e8f0; margin-bottom: var(--space-md);">
+                To democratize personalized education by building AI agents that understand *how* you learn, not just
+                *what* you know.
+            </p>
+            <p>
+                Conventional education is static. We believe in a dynamic future where the curriculum evolves with the
+                student.
+                Using the power of Multi-Modal Learning Analytics, we are bridging the gap between human cognition and
+                digital content.
+            </p>
+        </div>
+        <div style="position: relative;">
+            <div
+                style="background: linear-gradient(45deg, var(--bg-aurora-1), var(--bg-aurora-3)); width: 100%; height: 400px; border-radius: 30px; opacity: 0.2; position: absolute; top: 10px; left: 10px;">
+            </div>
+            <div
+                style="background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); width: 100%; height: 400px; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative;">
+                <span style="font-size: 8rem;">🚀</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 style="text-align: center;">Meet the Team</h2>
+    <div class="team-grid">
+        <!-- Supervisor -->
+        <div class="team-card">
+            <div class="avatar">👨‍🏫</div>
+            <h4>Dr. B. Ramaraju</h4>
+            <span style="color: var(--accent-glow); font-size: 0.9rem;">Project Supervisor</span>
+        </div>
+
+        <!-- Students -->
+        <div class="team-card">
+            <div class="avatar">👨‍💻</div>
+            <h4>Raam</h4>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Lead Developer</span>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">👩‍💻</div>
+            <h4>Raaju</h4>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Data Scientist</span>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">👨‍💻</div>
+            <h4>Rohit Sharma</h4>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Backend Engineer</span>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">👨‍💻</div>
+            <h4>Virat Kohli</h4>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Frontend Engineer</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

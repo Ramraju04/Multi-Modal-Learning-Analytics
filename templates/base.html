@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMLA - Intelligent Learning</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Custom Page CSS -->
+    {% block head_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Aurora Background -->
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+
+    <!-- Navigation V2 -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}"
+            style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-primary);">
+            MMLA<span style="color: var(--accent-glow)">.AI</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="{{ url_for('home') }}" class="nav-link">Overview</a></li>
+            <li><a href="{{ url_for('features') }}" class="nav-link">Technology</a></li>
+            <li><a href="{{ url_for('about') }}" class="nav-link">Mission</a></li>
+            <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary"
+                style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">
+                Launch Demo
+            </a>
+            <!-- Mobile Toggle -->
+            <div class="mobile-toggle" id="mobileMenuBtn"
+                style="color: white; font-size: 1.5rem; cursor: pointer; display: none;">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Multi-Modal Learning Analytics. Empowering Education with AI.</p>
+            <div style="margin-top: 10px; opacity: 0.7; font-size: 0.9rem;">
+                Research Project • IEEE Standard • Flask Framework
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Simple Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                const currentDisplay = navLinks.style.display;
+                navLinks.style.display = currentDisplay === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.right = '20px';
+                navLinks.style.background = 'rgba(10, 20, 30, 0.9)';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderRadius = '10px';
+            });
+        }
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

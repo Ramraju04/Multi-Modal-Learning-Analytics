@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block head_css %}
+<style>
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: var(--space-lg);
+        margin-top: var(--space-lg);
+    }
+
+    .tech-card {
+        background: var(--glass-surface);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: var(--space-md);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--bg-aurora-1), var(--bg-aurora-2));
+    }
+
+    .diagram-placeholder {
+        background: rgba(0, 0, 0, 0.3);
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: var(--space-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: monospace;
+        color: var(--text-secondary);
+        border: 1px dashed var(--glass-border);
+    }
+
+    .spec-list li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .spec-list li::before {
+        content: '✓';
+        color: var(--bg-aurora-3);
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container" style="padding-top: 150px;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 class="gradient-text">Under the Hood</h1>
+        <p>
+            The MMLA Architecture combines state-of-the-art Computer Vision with Deep Reinforcement Learning.
+        </p>
+    </div>
+
+    <div class="tech-grid">
+        <!-- Module 1 -->
+        <div class="tech-card">
+            <h3>1. Multimodal Sensor Fusion</h3>
+            <div class="diagram-placeholder">
+                [Video Stream] + [Log Data] -> Fusion Layer
+            </div>
+            <p>
+                We capture raw data streams from simulated sensors and process them in real-time.
+            </p>
+            <ul class="spec-list">
+                <li><strong>Visual Data:</strong> Gaze tracking & facial landmarks (CNN-based).</li>
+                <li><strong>Behavioral Logs:</strong> Click patterns & dwell time (LSTM-based).</li>
+                <li><strong>Assessment:</strong> Real-time quiz performance normalization.</li>
+            </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="tech-card">
+            <h3>2. The DRL Agent (DQN)</h3>
+            <div class="diagram-placeholder">
+                State(S) -> Policy(π) -> Action(A)
+            </div>
+            <p>
+                A Deep Q-Network acts as the pedagogical brain, optimizing for long-term retention.
+            </p>
+            <ul class="spec-list">
+                <li><strong>Algorithm:</strong> Double DQN with Prioritized Experience Replay.</li>
+                <li><strong>Reward Function:</strong> Weighted sum of Engagement + Learning Gain.</li>
+                <li><strong>Latency:</strong>
+                    < 50ms inference time on standard GPU.</li>
+            </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="tech-card">
+            <h3>3. Adaptive Curriculum</h3>
+            <div class="diagram-placeholder">
+                [Content Pool] -> [Personalized Sequence]
+            </div>
+            <p>
+                Content is dynamically sequenced based on the student's unique "Knowledge State".
+            </p>
+            <ul class="spec-list">
+                <li><strong>Dynamic Difficulty:</strong> Adjusts challenge level on the fly.</li>
+                <li><strong>Format Switching:</strong> Video -> Quiz -> Reading based on fatigue.</li>
+                <li><strong>Scalable:</strong> Supports thousands of concurrent learner sessions.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="text-align: center; margin-bottom: 50px;">
+    <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; display: inline-block;">
+        <h3>Technical Stack</h3>
+        <div style="display: flex; gap: 30px; justify-content: center; margin-top: 20px; opacity: 0.8;">
+            <span>Python/Flask</span>
+            <span>•</span>
+            <span>PyTorch</span>
+            <span>•</span>
+            <span>OpenCV</span>
+            <span>•</span>
+            <span>Chart.js</span>
+        </div>
+    </div>
+</section>
+{% endblock %}
