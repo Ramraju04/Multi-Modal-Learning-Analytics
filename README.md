@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Multi-Modal Learning Analytics (MMLA) using Deep Reinforcement Learning
 
 Welcome to the **MMLA Project**. This system is an advanced educational technology platform that uses Artificial Intelligence (AI) to personalize learning content for students in real-time.
@@ -87,3 +88,7 @@ The primary output is visualized on the **Dashboard Page**:
 - **`static/script.js`**: Frontend logic for the interactive dashboard.
 
 ---
+=======
+# Multi-Modal-Learning-Analytics
+An AI-powered adaptive learning system that uses Deep Reinforcement Learning and CNN-based engagement analysis to personalize educational content dynamically.
+>>>>>>> ccedf77412ec63cae4d5a61274b0af7ab3b1b827
